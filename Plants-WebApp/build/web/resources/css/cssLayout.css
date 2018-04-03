@@ -1,0 +1,133 @@
+#top {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100px;
+    padding: 5px;
+    margin: 0 0 40px 0;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+#measurments-content-container {
+    position: relative;
+    min-width: 80%;
+    max-width: 1280px;
+    /*max-height: 90%;*/
+    margin: auto;
+    /*border: 1px black solid;*/
+}
+
+#measurments {
+    float: left;
+    height: 100%;
+    width: 22%;
+    padding: 24px;
+    /*border-radius: 16px 16px 0 0;*/
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
+}
+
+#menu-content-container {
+    float: right;
+    width: 66%;
+    /*border-radius: 16px 16px 0 0;*/
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
+}
+
+#menu {
+    position: relative;
+    text-align: center;
+}
+
+ul.navBar {
+    list-style-type: none;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    
+}
+
+ul.navBar > a {
+    display: inline-block;
+    padding: 12px;
+    width: 120px;
+    
+    transition: all 0.5s ease;
+    background: radial-gradient(at bottom, rgba(255,255,255, 0.6) -10%, rgba(255,255,255, 0.1) 48%, transparent 74%);
+    background-repeat: no-repeat;
+    background-position: 0 42px;
+    border-bottom: 1px solid rgba(255,255,255, 0);
+}
+
+ul.navBar > a:hover {
+    background-repeat: no-repeat;
+    border-bottom: 1px solid rgba(255,255,255, 0.8);
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.5s ease;
+    background-position: 0;
+}
+
+ul.navBar > a:link, ul.navBar > a:visited, ul.navBar > li a {
+    color: #fff;
+}
+
+ul.navBar > a.checked {
+    border-bottom: 1px solid rgba(255,255,255, 0.8);
+}
+
+#content {
+    position: relative;
+    padding: 24px;
+    overflow: auto;
+    max-height: 350px;
+}
+
+.clear-div {
+    clear: both;
+}
+
+#footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    padding: 5px 0 5px 0;
+    margin: 0;
+    box-shadow: 0 -6px 6px rgba(0, 0, 0, 0.8);
+}
+
+.center_content {
+    position: relative;
+    background-color: #dddddd;
+    padding: 5px;
+}
+
+.left_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin-left: 170px;
+}
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+  color: white;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+  color: black;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+
