@@ -2,6 +2,8 @@
 
 Repozytorium łączące w sobie aplikacje, tworzące wspólnie System Monitorowania i Analizy danych pochodzących z czujników usytuowanych w otoczeniu badanej rośliny. Ma za zadanie usprawnić proces hodowli organizmów roślinnych, poprzez dostarczanie informacji o warunkach ich rozwoju.
 
+**Projekt aktualnie rozwijany.**
+
 ### Arduino Plants Monitoring
 
 Program napisany w języku obsługiwanym przez technologie Arduino. Zarządza wszystkimi czujnikami obsługiwanymi przez System Monitorujący.
