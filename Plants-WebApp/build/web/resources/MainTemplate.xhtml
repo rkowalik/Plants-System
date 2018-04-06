@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <title><ui:insert name="title"></ui:insert></title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">Inteligentny Model Monitorowania Środowiska Naturalnego Roślin</ui:insert>
+        </div>
+
+        <div id="measurments-content-container">
+            <div id="measurments">
+                <ui:insert name="measurments">
+                    <p style="text-align: center; font-weight: bold">
+                        AKTUALNE POMIARY
+                    </p>
+                    
+                    <br/>
+                    <p>
+                        <center><b>Rzeżucha Ogrodowa</b></center>
+                    </p>
+                    <p>Lokalizacja: <b>Lublin</b></p>
+                    <br/>
+                    <p>Temperatura gleby: </p>
+                    <p>Wilgotność gleby: </p>
+                    <p>Temperatura powietrza:</p>
+                    <p>Wilgotność powietrza: </p>
+                    <p>Temperatura odczuwalna: </p>
+                    <p>Natężenie światła: </p>
+                </ui:insert>
+            </div>
+            
+            
+            
+            <div id="menu-content-container">
+                
+                <div id="menu">
+                    <ul class="navBar">
+                        <h:link outcome="index.xhtml" id="indexPage"><li>O Projekcie</li></h:link>
+                        <h:link outcome="data.xhtml" id="dataPage"><li>Dane</li></h:link>
+                        <h:link outcome="contact.xhtml" id="contactPage"><li>Kontakt</li></h:link>
+                    </ul>
+                </div>
+                
+                <div id="content">
+                    <ui:insert name="content">Content</ui:insert>
+                </div>
+                
+            </div>
+            
+            <div class="clear-div"></div>
+            
+        </div>
+
+        <div id="footer">
+            <ui:insert name="footer">Rafał Kowalik 2018</ui:insert>
+        </div>
+
+    </h:body>
+
+</html>
