@@ -23,6 +23,7 @@
                     <p style="text-align: center; font-weight: bold">
                         AKTUALNE POMIARY
                     </p>
+                    na dzień #{measurments.time}
                     
                     <br/>
                     <p>
@@ -30,12 +31,12 @@
                     </p>
                     <p>Lokalizacja: <b>Lublin</b></p>
                     <br/>
-                    <p>Temperatura gleby: </p>
-                    <p>Wilgotność gleby: </p>
-                    <p>Temperatura powietrza:</p>
-                    <p>Wilgotność powietrza: </p>
-                    <p>Temperatura odczuwalna: </p>
-                    <p>Natężenie światła: </p>
+                    <p>Temperatura gleby: #{measurments.soilTemperature} °C</p>
+                    <p>Wilgotność gleby: #{measurments.soilMoisture} %</p>
+                    <p>Temperatura powietrza: #{measurments.airTemperature} °C</p>
+                    <p>Wilgotność powietrza: #{measurments.humidity} %</p>
+                    <p>Temperatura odczuwalna: #{measurments.heatIndex} °C</p>
+                    <p>Natężenie światła: #{measurments.lightStrength}</p>
                 </ui:insert>
             </div>
             

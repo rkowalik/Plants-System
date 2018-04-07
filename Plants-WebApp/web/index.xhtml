@@ -13,7 +13,11 @@
                 
             <ui:define name="content">
                 
-                <!--<h:outputText value="${measurments.someTest}"</h:outputText>-->
+                <h:outputText value="Wartość: ${measurments.time}"></h:outputText>
+                <h:form>
+                    <!--<h:inputText value="#{measurments.time}"/>-->
+                    <h:commandButton action="#{measurments.requestLastMeasurments}" value="submit"/>
+                </h:form>
                 
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt orci quis arcu varius tincidunt. Aliquam vel justo sollicitudin, rhoncus sapien in, lacinia quam. Sed in tellus urna. Vivamus vestibulum, ante ac varius varius, mi lorem dignissim nibh, quis molestie massa justo id tellus. Nunc id eros non tellus porttitor consectetur. Cras venenatis in erat ac iaculis. Nunc et ligula metus. Aenean ultrices sit amet urna convallis maximus. Maecenas rhoncus congue aliquet.</p>
                 <br/>
