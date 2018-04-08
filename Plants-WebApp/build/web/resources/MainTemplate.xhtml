@@ -21,22 +21,20 @@
             <div id="measurments">
                 <ui:insert name="measurments">
                     <p style="text-align: center; font-weight: bold">
-                        AKTUALNE POMIARY
+                        WYNIKI POMIAROWE<br/>
+                        na dzień #{currentMeasurments.time}
                     </p>
-                    na dzień #{measurments.time}
                     
                     <br/>
-                    <p>
-                        <center><b>Rzeżucha Ogrodowa</b></center>
-                    </p>
+                    <p><b>Rzeżucha Ogrodowa</b></p>
                     <p>Lokalizacja: <b>Lublin</b></p>
                     <br/>
-                    <p>Temperatura gleby: #{measurments.soilTemperature} °C</p>
-                    <p>Wilgotność gleby: #{measurments.soilMoisture} %</p>
-                    <p>Temperatura powietrza: #{measurments.airTemperature} °C</p>
-                    <p>Wilgotność powietrza: #{measurments.humidity} %</p>
-                    <p>Temperatura odczuwalna: #{measurments.heatIndex} °C</p>
-                    <p>Natężenie światła: #{measurments.lightStrength}</p>
+                    <p>Temperatura gleby: #{currentMeasurments.soilTemperature} °C</p>
+                    <p>Wilgotność gleby: #{currentMeasurments.soilMoisture} %</p>
+                    <p>Temperatura powietrza: #{currentMeasurments.airTemperature} °C</p>
+                    <p>Wilgotność powietrza: #{currentMeasurments.humidity} %</p>
+                    <p>Temperatura odczuwalna: #{currentMeasurments.heatIndex} °C</p>
+                    <p>Natężenie światła: #{currentMeasurments.lightStrength}</p>
                 </ui:insert>
             </div>
             

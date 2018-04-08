@@ -1,8 +1,3 @@
-import java.io.Serializable;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 //import javax.faces.bean.ManagedBean;
 //import javax.faces.bean.SessionScoped;
@@ -11,41 +6,17 @@ import java.util.logging.Logger;
 //@SessionScoped
 
 
-public class Measurments implements Serializable {
-    
-//    private Measurments measurments = new Measurments();
+public abstract class Measurments {
 
-    private String time;
-    private float soilTemperature;
-    private float soilMoisture;
-    private float airTemperature;
-    private float humidity;
-    private float heatIndex;
-    private int lightStrength;
+    protected String time;
+    protected float soilTemperature;
+    protected float soilMoisture;
+    protected float airTemperature;
+    protected float humidity;
+    protected float heatIndex;
+    protected int lightStrength;
  
     public Measurments() {
-    }
-    
-    public void requestLastMeasurments() {
-        try {
-            SQLiteManager db = new SQLiteManager();
-            db.connect();
-            
-            ResultSet result = db.select("SELECT * FROM data ORDER BY time DESC");
-            if(result.next()) {
-                time = result.getString("time");
-                soilTemperature = result.getFloat("soilTemperature");
-                soilMoisture = result.getFloat("soilMoisture");
-                airTemperature = result.getFloat("airTemperature");
-                humidity = result.getFloat("humidity");
-                heatIndex = result.getFloat("heatIndex");
-                lightStrength = result.getInt("lightStrength");
-            }
-            
-            db.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Measurments.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     
     public void test() {
@@ -110,8 +81,5 @@ public class Measurments implements Serializable {
     public void setLightStrength(int lightStrength) {
         this.lightStrength = lightStrength;
     }
-    
-    
-    
     
 }

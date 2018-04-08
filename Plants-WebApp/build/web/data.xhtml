@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
 
@@ -10,8 +11,19 @@
             <ui:define name="title">Dane</ui:define>
 
             <ui:define name="content">
-                Jakieś dane, wykresy itd...
                 
+                <h1>Aktualizacja danych pomiarowych</h1>
+                
+                <p>Wyślij żądanie o zaktualizowanie danych do urządzenia:</p>
+                <h:form>
+                    <h:commandButton action="#{currentMeasurments.request}" value="Aktualizuj"/>
+                </h:form>
+                
+                
+                <h1>Przedstawienie danych na wykresach</h1>
+                
+                
+                             
                 <script>
                     var page = document.getElementById("dataPage");
                     page.className += " checked";
