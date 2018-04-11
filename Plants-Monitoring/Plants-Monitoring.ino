@@ -15,73 +15,114 @@
 #define MOISTURE_PIN A1
 
 
-DHT dht(DHTPIN, DHTTYPE);
+class Sensors {
+  float humidity;
+  float airTemperature;
+  float heatIndex;
+  float soilTemperature;
+  float soilMoisture;
+  int lightStrength;
 
-OneWire oneWire(TEMPERATURE_PIN);
-DallasTemperature temperatureSensor(&oneWire);
+  DHT dht;
+  DallasTemperature soilTemperatureSensor;
+  OneWire oneWire;
+
+public:
+  Sensors() : dht(DHTPIN, DHTTYPE), oneWire(TEMPERATURE_PIN), soilTemperatureSensor(&oneWire) {}
+
+  void init() {
+    dht.begin();
+    soilTemperatureSensor.begin();
+    pinMode(PHOTORESISTOR_PIN, INPUT);
+    pinMode(MOISTURE_PIN, INPUT);
+
+//    pinMode(13, OUTPUT);
+  }
+
+  void readMeasurments() {
+    humidity = dht.readHumidity();
+    
+    airTemperature = dht.readTemperature();
+    
+    // Compute heat index in Celsius (isFahreheit = false)
+    heatIndex = dht.computeHeatIndex(airTemperature, humidity, false);
+
+    soilTemperatureSensor.requestTemperatures();
+    soilTemperature = soilTemperatureSensor.getTempCByIndex(0);
+
+    //soilMoisture = (float (1023 - analogRead(MOISTURE_PIN)) / 1023) * 100;
+    soilMoisture = map(analogRead(MOISTURE_PIN), 390, 1023, 100, 0);
+  
+    lightStrength = analogRead(PHOTORESISTOR_PIN);
+  }
+
+  void sendFrame() {
+    Serial.print(soilTemperature);
+    Serial.print(":");
+    Serial.print(soilMoisture);
+    Serial.print(":");
+    Serial.print(airTemperature);
+    Serial.print(":");
+    Serial.print(humidity);
+    Serial.print(":");
+    Serial.print(heatIndex);
+    Serial.print(":");
+    Serial.println(lightStrength);
+  }
+  
+};
+
+
+Sensors sensors;
+char serialBuffer;
 
 
 void setup() {
   Serial.begin(9600);
-
-  dht.begin();
-  temperatureSensor.begin();
-  pinMode(PHOTORESISTOR_PIN, INPUT);
-  pinMode(MOISTURE_PIN, INPUT);
+  sensors.init();
 }
 
 void loop() {
-  float humidity = dht.readHumidity();
-  float airTemperature = dht.readTemperature();
-  
-  // Compute heat index in Celsius (isFahreheit = false)
-  float heatIndex = dht.computeHeatIndex(airTemperature, humidity, false);
 
-  temperatureSensor.requestTemperatures();
-  float soilTemperature = temperatureSensor.getTempCByIndex(0);
+  if (serialBuffer == 'r') {
+    sensors.readMeasurments();
+    sensors.sendFrame();
+    serialBuffer = '\0';
+  }
 
-  //int soilMoisture = analogRead(MOISTURE_PIN);
-  float soilMoisture = (float (1023 - analogRead(MOISTURE_PIN)) / 1023) * 100;
-  //float soilMoisture = map(analogRead(MOISTURE_PIN), 1023, 0, 0, 100);
-  
-  int lightStrength = analogRead(PHOTORESISTOR_PIN);
-
-  // Send data
-//    Serial.print(soilTemperature);
-//    Serial.print(":");
-//    Serial.print(soilMoisture);
-//    Serial.print(":");
-//    Serial.print(airTemperature);
-//    Serial.print(":");
-//    Serial.print(humidity);
-//    Serial.print(":");
-//    Serial.print(heatIndex);
-//    Serial.print(":");
-//    Serial.println(lightStrength);
-
+  delay(100);
 
     
   // Print on Serial Monitor
-  Serial.print("Humidity: ");
-  Serial.print(humidity);
-  Serial.print(" %\t");
-  Serial.print("soil Moisture: ");
-  Serial.print(soilMoisture);
-  Serial.print(" %\t");
-  Serial.print("Temperature: ");
-  Serial.print(airTemperature);
-  Serial.print(" *C\t");
-  Serial.print("Heat index: ");
-  Serial.print(heatIndex);
-  Serial.println(" *C ");
+  // Serial.print("Humidity: ");
+  // Serial.print(humidity);
+  // Serial.print(" %\t");
+  // Serial.print("soil Moisture: ");
+  // Serial.print(soilMoisture);
+  // Serial.print(" %\t");
+  // Serial.print("Temperature: ");
+  // Serial.print(airTemperature);
+  // Serial.print(" *C\t");
+  // Serial.print("Heat index: ");
+  // Serial.print(heatIndex);
+  // Serial.println(" *C ");
 
-  Serial.print("Soil Temperature: ");
-  Serial.print(soilTemperature);
-  Serial.println(" *C");
+  // Serial.print("Soil Temperature: ");
+  // Serial.print(soilTemperature);
+  // Serial.println(" *C");
 
-  Serial.print("Light Strength: ");
-  Serial.println(lightStrength);
-  Serial.println("============================");
+  // Serial.print("Light Strength: ");
+  // Serial.println(lightStrength);
+  // Serial.println("============================");
 
-  delay(6000);
+  
 }
+
+
+void serialEvent() {
+  while (Serial.available()) {
+    serialBuffer = (char) Serial.read();
+  }
+}
+
+
