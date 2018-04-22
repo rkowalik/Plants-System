@@ -51,7 +51,8 @@ public:
     soilTemperature = soilTemperatureSensor.getTempCByIndex(0);
 
     //soilMoisture = (float (1023 - analogRead(MOISTURE_PIN)) / 1023) * 100;
-    soilMoisture = map(analogRead(MOISTURE_PIN), 390, 1023, 100, 0);
+    //soilMoisture = map(analogRead(MOISTURE_PIN), 390, 1023, 100, 0);
+    soilMoisture = analogRead(MOISTURE_PIN);
   
     lightStrength = analogRead(PHOTORESISTOR_PIN);
   }
