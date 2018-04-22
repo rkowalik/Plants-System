@@ -21,4 +21,48 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
+    
+    
+    <!--Apache Myfaces Trinidad-->
+    <filter>
+        <filter-name>trinidad</filter-name>
+        <filter-class>org.apache.myfaces.trinidad.webapp.TrinidadFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>trinidad</filter-name>
+        <!-- This assumes that the FacesServlet has been registered -->
+        <!-- under the name "faces" -->
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>
+    
+    <servlet>
+        <servlet-name>resources</servlet-name>
+        <servlet-class>org.apache.myfaces.trinidad.webapp.ResourceServlet</servlet-class>
+    </servlet>
+
+    <!-- This cannot be configured currently -->
+    <servlet-mapping>
+        <servlet-name>resources</servlet-name>
+        <url-pattern>/adf/*</url-pattern>
+    </servlet-mapping>
+    
+    <context-param>
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>client</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>org.apache.myfaces.trinidad.ALTERNATE_VIEW_HANDLER</param-name>
+        <!-- TrinidadFaceletViewHander must be the alternate view handler if SessionChangeManager is used -->
+        <param-value>org.apache.myfaces.trinidadinternal.facelets.TrinidadFaceletViewHandler</param-value>
+    </context-param>
+
+    <context-param>
+        <!--Unfortunately, Facelets provides no hook for plugging the PageResolver into the logic 
+          handling "facelets.VIEW_MAPPINGS". You should leave "facelets.VIEW_MAPPINGS" 
+          unset and use "org.apache.myfaces.trinidad.FACELETS_VIEW_MAPPINGS" instead.-->
+        <param-name>org.apache.myfaces.trinidad.FACELETS_VIEW_MAPPINGS</param-name>
+        <param-value>*.xhtml</param-value>
+    </context-param>
 </web-app>

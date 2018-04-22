@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/szarkii/Dropbox/Projects/UMCS/Plants%20System/Plants-WebApp/web/data.xhtml</file>
-            <file>file:/home/szarkii/Dropbox/Projects/UMCS/Plants%20System/Plants-WebApp/web/index.xhtml</file>
-            <file>file:/home/szarkii/Dropbox/Projects/UMCS/Plants%20System/Plants-WebApp/src/java/Measurments.java</file>
-            <file>file:/home/szarkii/Dropbox/Projects/UMCS/Plants%20System/Plants-WebApp/web/WEB-INF/faces-config.xml</file>
-            <file>file:/home/szarkii/Dropbox/Projects/UMCS/Plants%20System/Plants-WebApp/src/java/CurrentMeasurments.java</file>
-            <file>file:/home/szarkii/Dropbox/Projects/UMCS/Plants%20System/Plants-WebApp/web/test.xhtml</file>
-            <file>file:/home/szarkii/Dropbox/Projects/UMCS/Plants%20System/Plants-WebApp/web/resources/MainTemplate.xhtml</file>
-            <file>file:/home/szarkii/Dropbox/Projects/UMCS/Plants%20System/Plants-WebApp/src/java/SQLiteManager.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

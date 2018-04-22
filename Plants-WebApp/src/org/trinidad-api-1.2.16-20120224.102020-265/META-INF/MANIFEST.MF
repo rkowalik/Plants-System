@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: jenkins
+Build-Jdk: 1.6.0_27
+Specification-Title: Apache MyFaces Trinidad API
+Specification-Version: 1.2.16-SNAPSHOT
+Specification-Vendor: The Apache Software Foundation
+Implementation-Title: Apache MyFaces Trinidad API
+Implementation-Version: 1.2.16-SNAPSHOT
+Implementation-Vendor-Id: org.apache.myfaces.trinidad
+Implementation-Vendor: The Apache Software Foundation
+

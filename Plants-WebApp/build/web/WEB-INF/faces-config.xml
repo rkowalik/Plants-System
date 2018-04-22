@@ -9,6 +9,8 @@
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     
-    
+    <application>
+        <default-render-kit-id>org.apache.myfaces.trinidad.core</default-render-kit-id>
+    </application>
     
 </faces-config>
