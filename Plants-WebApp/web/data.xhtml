@@ -21,7 +21,12 @@
                 
                 
                 <h1>Przedstawienie danych na wykresach</h1>
+                <h:link outcome="resources/ChartTemplate.xhtml" value="Chart Template"/><br/>
+                <h:link outcome="test.xhtml" value="test"/>
                 
+                <h:form target="resources/ChartTemplate.xhtml">
+                    <h:commandButton action="#{chartGenerator.request}" value="Wykres"/>
+                </h:form>
                 
                              
                 <script>

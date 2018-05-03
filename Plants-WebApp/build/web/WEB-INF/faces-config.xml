@@ -9,6 +9,22 @@
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     
+<!--    <managed-bean>
+        <managed-bean-name>chart</managed-bean-name>
+        <managed-bean-class>Chart</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>-->
     
+<!--    <managed-bean>
+        <managed-bean-name>chartGenerator</managed-bean-name>
+        <managed-bean-class>ChartGenerator</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>-->
+    
+<!--    <managed-bean>
+        <managed-bean-name>pointsData</managed-bean-name>
+        <managed-bean-class>PointsData</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>-->
     
 </faces-config>

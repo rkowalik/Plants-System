@@ -4,20 +4,20 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <head>  
+    
 <script>
 window.onload = function () {
 
 var chart = new CanvasJS.Chart("chartContainer", {
 	title: {
-		text: "House Median Price"
+		text: "#{chartData.title}"
 	},
 	axisX: {
-		valueFormatString: "MMM YYYY"
+		valueFormatString: "HH:mm DD-MM-YYYY"
 	},
 	axisY2: {
-		title: "Median List Price",
-		prefix: "$",
-		suffix: "K"
+		title: "Temperatura",
+		suffix: "°C"
 	},
 	toolTip: {
 		shared: true
