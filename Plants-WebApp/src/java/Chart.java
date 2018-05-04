@@ -35,8 +35,6 @@ class PointsData {
     
     
     public void addPoint(String XValue, Float YValue) {
-        System.out.println("==== addPoint... ====");
-        System.out.println(XPoints);
         XPoints.add(XValue);
         YPoints.add(YValue);
     }
@@ -79,12 +77,12 @@ class PointsData {
 @ManagedBean
 @RequestScoped
 public class Chart implements Serializable {
-    private String title;
-    private String axisXValueFormat;
-    private String axisYTitle;
-    private String axisYSuffix;
-    private String pointsDataStr;
-    private List<PointsData> pointsData;
+    protected String title;
+    protected String axisXValueFormat;
+    protected String axisYTitle;
+    protected String axisYSuffix;
+    protected String pointsDataStr;
+    protected List<PointsData> pointsData;
 
     public Chart() {
     }
@@ -130,7 +128,7 @@ public class Chart implements Serializable {
         
         pointsDataStr = sb.toString();
     }
-
+    
     public String getPointsData() {
         return pointsDataStr;
     }

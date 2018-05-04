@@ -12,14 +12,14 @@
 
         var chart = new CanvasJS.Chart("chartContainer", {
             title: {
-                    text: "#{chart.title}"
+                    text: "#{chartsGenerator.charts["temperature"].title}"
             },
             axisX: {
-                    valueFormatString: "#{chart.axisXValueFormat}"
+                    valueFormatString: "#{chartsGenerator.charts["temperature"].axisXValueFormat}"
             },
             axisY2: {
-                    title: "#{chart.axisYTitle}",
-                    suffix: "#{chart.axisYSuffix}"
+                    title: "#{chartsGenerator.charts["temperature"].axisYTitle}",
+                    suffix: "#{chartsGenerator.charts["temperature"].axisYSuffix}"
             },
             toolTip: {
                     shared: true
@@ -31,7 +31,7 @@
                     dockInsidePlotArea: true,
                     itemclick: toogleDataSeries
             },
-            data: [ #{chart.pointsData} ]
+            data: [ #{chartsGenerator.charts["temperature"].pointsData} ]
         });
         chart.render();
 
@@ -49,7 +49,8 @@
     </head>
 <body>
     <h:form target="">
-        <h:commandButton action="#{chartGenerator.request}" value="Wykres"/>
+        <input type="hidden" name="title" value="Pomiar Temperatury"/>
+        <h:commandButton action="#{chartsGenerator.request}" value="Wykres"/>
     </h:form>
     
     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
