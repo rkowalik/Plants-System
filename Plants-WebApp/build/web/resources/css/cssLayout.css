@@ -130,4 +130,16 @@ ul.navBar > a.checked {
   text-decoration : underline;
 }
 
+.chartContainer {
+    margin: 20px 0 20px 0;
+    height: 300px;
+    width: 100%;
+}
 
+.formDefault {
+    margin: 20px;
+}
+
+.formDefault label {
+    margin-right: 40px;
+}
