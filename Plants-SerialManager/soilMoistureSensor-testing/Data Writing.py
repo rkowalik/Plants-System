@@ -10,8 +10,8 @@ class Database:
 		self.conn = sqlite3.connect(path)
 		print ('Opened database successfilly.')
 
-	def addToDatabase(self, soilTemperature, soilMoisture, airTemperature, humidity, heatIndex, lightStrength):
-		self.conn.execute("INSERT INTO data (time, soilTemperature, soilMoisture, airTemperature, humidity, heatIndex, lightStrength) VALUES (datetime('now', 'localtime'),  " + str(soilTemperature) + ", " + str(soilMoisture) + ", " + str(airTemperature) + ", " + str(humidity) + ",  " + str(heatIndex) + ",  " + str(lightStrength) + ")")
+	def addToDatabase(self, oldSensor, newSensor):
+		self.conn.execute("INSERT INTO data (time, oldSensor, newSensor) VALUES (datetime('now', 'localtime'),  " + str(oldSensor) + ", " + str(newSensor) + ")")
 		
 		self.conn.commit()
 
@@ -49,17 +49,17 @@ class SerialConnection:
 
 	def writeToDatabase(self):
 		values = self.getResults()
-		self.database.addToDatabase(values[0], values[1], values[2], values[3], values[4], values[5])
+		self.database.addToDatabase(values[0], values[1])
 
 	def print(self, values):
-		print("Soil Temperature: " + values[0] + " *C\t Soil Moisture: " + values[1] + " %\tAir Temperature: " + values[2] + " *C\tHumidity: " + values[3] + " %\tHeat Index: " + values[4] + " *C\tLight Strength: " + values[5])
+		print("old sensor value: " + values[0] + "/1023\t new sensor value: " + values[1] + "/1023")
 
 	def monitor(self):
 		while True:
 			try:
 				values = self.getResults()
 				self.print(values)
-				time.sleep(6)
+				time.sleep(1)
 			except KeyboardInterrupt:
 				break
 
@@ -73,7 +73,7 @@ class SerialConnection:
 
 		
 
-databasePath = "new-soilMoistureSensor-samples.db"
+databasePath = "soilMoisture-samples.db"
 arduinoDevice = "/dev/ttyACM0"
 
 arduino = SerialConnection(arduinoDevice)
