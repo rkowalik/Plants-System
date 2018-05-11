@@ -2,46 +2,66 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="css/default.css"/>
         <h:outputStylesheet name="css/cssLayout.css"/>
-        <title><ui:insert name="title">aa</ui:insert></title>
+        <link href="https://fonts.googleapis.com/css?family=Acme|Lato|Titan+One" rel="stylesheet"></link>
+        <title><ui:insert name="title"></ui:insert></title>
         <ui:insert name="headScript"></ui:insert>
     </h:head>
 
     <h:body>
 
-        <div id="top">
-            <ui:insert name="top">Inteligentny Model Monitorowania Środowiska Naturalnego Roślin</ui:insert>
-        </div>
+        <div id="top-bg">
+            <div id="top">
+                <div id="projectNameContainer" class="title">
+                    Inteligentny Model Monitorowania Środowiska Naturalnego Roślin
+                </div>
 
-        <div id="measurments-content-container">
-            <div id="measurments">
-                <ui:insert name="measurments">
-                    <p style="text-align: center; font-weight: bold">
-                        WYNIKI POMIAROWE<br/>
-                        na dzień #{currentMeasurments.time}
-                    </p>
-                    
-                    <br/>
-                    <p><b>Rzeżucha Ogrodowa</b></p>
-                    <p>Lokalizacja: <b>Lublin</b></p>
-                    <br/>
-                    <p>Temperatura gleby: #{currentMeasurments.soilTemperature} °C</p>
-                    <p>Wilgotność gleby: #{currentMeasurments.soilMoisture} %</p>
-                    <p>Temperatura powietrza: #{currentMeasurments.airTemperature} °C</p>
-                    <p>Wilgotność powietrza: #{currentMeasurments.humidity} %</p>
-                    <p>Temperatura odczuwalna: #{currentMeasurments.heatIndex} °C</p>
-                    <p>Natężenie światła: #{currentMeasurments.lightStrength}</p>
-                </ui:insert>
+                <div id="measurments-container">
+                    <div class="measurments" >
+                        <h:panelGrid columns="2"  cellspacing="10px">
+                            <f:facet name="header">
+                                <h:outputText class="title" value="Wyniki pomiarowe"/>
+                            </f:facet>
+                            <h:outputText style="font-weight: bold" value="na dzień"/>
+                            <h:outputText value="#{currentMeasurments.time}"/>
+                            <h:outputText style="font-weight: bold" value="Obiekt:" />
+                            <h:outputText value="Rzeżucha Ogrodowa"/>
+                            <h:outputText style="font-weight: bold" value="Lokalizacja:" />
+                            <h:outputText value="Lublin"/>
+                        </h:panelGrid>
+                    </div>
+                    <div class="measurments">
+                        <h:panelGrid columns="2"  cellspacing="10px">
+                            <h:outputText style="font-weight: bold" value="Temperatura gleby:"/>
+                            <h:outputText value="#{currentMeasurments.soilTemperature} °C"/>
+                            <h:outputText style="font-weight: bold" value="Wilgotność gleby:" />
+                            <h:outputText value="#{currentMeasurments.soilMoisture} %"/>
+                            <h:outputText style="font-weight: bold" value="Temperatura powietrza:" />
+                            <h:outputText value="#{currentMeasurments.airTemperature} °C"/>
+                        </h:panelGrid>
+                    </div>
+                    <div class="measurments">
+                        <h:panelGrid columns="2"  cellspacing="10px">
+                            <h:outputText style="font-weight: bold" value="Wilgotność powietrza:"/>
+                            <h:outputText value="#{currentMeasurments.humidity} %"/>
+                            <h:outputText style="font-weight: bold" value="Temperatura odczuwalna:" />
+                            <h:outputText value="#{currentMeasurments.heatIndex} °C"/>
+                            <h:outputText style="font-weight: bold" value="Natężenie światła:" />
+                            <h:outputText value="#{currentMeasurments.lightStrength}"/>
+                        </h:panelGrid>
+                    </div>
+                </div>
             </div>
             
-            
-            
-            <div id="menu-content-container">
+        </div>
+
+        <div id="contentContainer">
                 
                 <div id="menu">
                     <ul class="navBar">
@@ -54,10 +74,6 @@
                 <div id="content">
                     <ui:insert name="content">Content</ui:insert>
                 </div>
-                
-            </div>
-            
-            <div class="clear-div"></div>
             
         </div>
 

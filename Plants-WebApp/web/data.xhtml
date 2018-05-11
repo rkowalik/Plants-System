@@ -89,7 +89,6 @@
         <h:form id="chartsForm" target="" class="formDefault">
             <h:panelGrid columns="3" cellpadding="16px" >
                 <h:outputText value="Wybierz dzień: "/>
-                <!--<h:inputText value="#{chartsGenerator.day}" required="true"/>-->
                 <input id="dateInput" type="date" name="day" required="true"/>
                 <h:outputText value="#{chartsGenerator.errorMessage}" style="color:red" />
                 <h:commandButton onclick="chartOnClick()" action="#{chartsGenerator.request}" value="Wyświetl"/>

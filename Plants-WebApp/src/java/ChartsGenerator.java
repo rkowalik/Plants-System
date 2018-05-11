@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -97,7 +96,7 @@ public class ChartsGenerator implements Serializable {
     
     private Chart getTemperatureChart() {
         Chart chart = new Chart();
-        chart.setTitle("Pomiar temperatury na dzień " + day);
+        chart.setTitle("Pomiary temperatury na dzień " + day);
         chart.setAxisXValueFormat("HH:mm DD-MM-YYYY");
         chart.setAxisYTitle("Temperatura");
         chart.setAxisYSuffix("°C");
@@ -122,12 +121,11 @@ public class ChartsGenerator implements Serializable {
     }
     
     public void request() {
-        String value = FacesContext.getCurrentInstance().
-		getExternalContext().getRequestParameterMap().get("dateInput");
         try {
             getPointsDataFromDB();
             charts.put("temperature", getTemperatureChart());
             charts.put("others", getOthersChart());
+            errorMessage = "";
         } catch (Exception ex) {
             errorMessage = ex.getMessage();
             Logger.getLogger(ChartsGenerator.class.getName()).log(Level.SEVERE, null, ex);
