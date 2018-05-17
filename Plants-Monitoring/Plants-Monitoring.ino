@@ -23,6 +23,8 @@ class Sensors {
   float soilMoisture;
   int lightStrength;
 
+  int lowestAnalogSoilMoisture = 290;
+
   DHT dht;
   DallasTemperature soilTemperatureSensor;
   OneWire oneWire;
@@ -50,11 +52,15 @@ public:
     soilTemperatureSensor.requestTemperatures();
     soilTemperature = soilTemperatureSensor.getTempCByIndex(0);
 
-    //soilMoisture = (float (1023 - analogRead(MOISTURE_PIN)) / 1023) * 100;
-    //soilMoisture = map(analogRead(MOISTURE_PIN), 390, 1023, 100, 0);
-    soilMoisture = analogRead(MOISTURE_PIN);
+    float soilMoistureAnalog = analogRead(MOISTURE_PIN);
+    if(soilMoistureAnalog < lowestAnalogSoilMoisture) {
+      soilMoistureAnalog = lowestAnalogSoilMoisture;
+    }
+    soilMoisture = map(analogRead(MOISTURE_PIN), lowestAnalogSoilMoisture, 1023, 100, 0);
+    //soilMoisture = analogRead(MOISTURE_PIN);
   
-    lightStrength = analogRead(PHOTORESISTOR_PIN);
+    //lightStrength = analogRead(PHOTORESISTOR_PIN);
+    lightStrength = map(analogRead(PHOTORESISTOR_PIN), 0, 700, 0, 100);
   }
 
   void sendFrame() {
